@@ -12,7 +12,7 @@ node (){
     }
     stage('Post-to-dockerhub') {
     
-     docker.withRegistry('https://registry.hub.docker.com', 'interim-github') {
+     docker.withRegistry('https://registry.hub.docker.com', 'interim-dockerhub') {
             app.push("latest")
         			}
          }
