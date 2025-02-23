@@ -12,14 +12,12 @@ node (){
     }
 
     stage('Test') {
-      steps {
-        echo 'Testing...'
         snykSecurity(
           snykInstallation: 'Snyk-latest',
           snykTokenId: 'interim_snyk'
         )
-      }
     }
+    
 
 
     stage('Post-to-dockerhub') {
@@ -27,7 +25,7 @@ node (){
      docker.withRegistry('https://registry.hub.docker.com', 'interim-dockerhub') {
             app.push("latest")
         			}
-         }
+    }
   
     
     stage('Pull-image-server') {
