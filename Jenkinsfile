@@ -10,6 +10,18 @@ node (){
          * docker build on the command line */
         app = docker.build("jmorales111/myprivaterepo")
     }
+
+    stage('Test') {
+      steps {
+        echo 'Testing...'
+        snykSecurity(
+          snykInstallation: 'Snyk-latest',
+          snykTokenId: 'interim_snyk'
+        )
+      }
+    }
+
+
     stage('Post-to-dockerhub') {
     
      docker.withRegistry('https://registry.hub.docker.com', 'interim-dockerhub') {
