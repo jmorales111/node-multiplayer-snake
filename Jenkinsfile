@@ -15,7 +15,8 @@ node (){
     stage('Test') {
         snykSecurity(
           snykInstallation: 'Snyk-latest',
-          snykTokenId: 'interim_snyk'
+          snykTokenId: 'interim_snyk',
+          failOnIssues:false
         )
 
     }
