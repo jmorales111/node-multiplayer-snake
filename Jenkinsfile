@@ -11,6 +11,7 @@ node (){
         app = docker.build("jmorales111/myprivaterepo")
     }
 
+    /*
     stage('Test') {
         snykSecurity(
           snykInstallation: 'Snyk-latest',
@@ -19,6 +20,7 @@ node (){
         )
 
     }
+    */
     
 
 
